@@ -19,7 +19,7 @@ function main(){
 	let questions = setup();
 	for (question = 1; question <= questions; question++) {
 		wrongAnswers+=questioner();
-		if (stop == true) break;
+		if (stop == true) question = questions;
 		console.log("wrong answers: "+wrongAnswers);
 	} 
 	if (wrongAnswers>0) {
