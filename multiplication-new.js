@@ -9,24 +9,25 @@
 // 4. Embed all code in a For loop and run it 10 times.
 
 /*  initializations */
-var topRange=0;bottomRange=0;wrongAnswers=0;stop=false;again=true;
-while (again==true) {
-	again=main();
-}
+main();
 
 /* code */
 function main(){
+	let again=true;
+	let stop=false;
+	let wrongAnswers=0;
+	let bottomRange=0;
+	let topRange=0;
 	let questions = setup();
-	for (question = 1; question <= questions; question++) {
+	for (let question = 1; question <= questions; question++) {
 		wrongAnswers+=questioner();
-		if (stop == true) question = questions;
-		console.log("wrong answers: "+wrongAnswers);
 	} 
 	if (wrongAnswers>0) {
 	   again = confirm("You had "+wrongAnswers+" wrong answers out of "+questions+ " questions, with factors up to "+topRange+".\nDo this some more?");
 	}
 	else again = confirm("Charlie, you've won! Try a higher factor and do this some more?");
-	return again;
+	if (again==true) main();
+	else alert("Hope you learned your times tables!");
 }
 
 // FUNCTIONS
@@ -39,25 +40,6 @@ function setup() {
 	return questions;
 }
 
-function userInput(equation, solution){
-	let wrong=0;
-	let input=0;
-	while (input != solution && stop==false) {
-		input = prompt(equation);
-      	if (input == "stop") {
-      		stop = true;
-      		return wrong;
-      	}
-		else if (input == solution) alert("Correct!");
-      	else {
-			alert("Incorrect solution. Try again.");
- 			wrong++;
-      	} 
-   }
-   if (wrong > 0) wrong = 1;
-   return wrong;
-}
-
 function questioner(){
    	let wrong=0; 
 	x = Math.floor(Math.random()*(topRange-bottomRange))+bottomRange;
@@ -66,8 +48,25 @@ function questioner(){
 	let solution=x*y; 
 	wrong = userInput(equation,solution);
 	console.trace("multiPractice: ",x," * ",y," with ",wrong," wrong.");
-	if (stop==true) {
-		return wrong;
-	}
 	return wrong; 
+}
+
+function userInput(equation, solution){
+	let wrong=0;
+	let input=0;
+	while (input != solution && stop==false) {
+		input = prompt(equation);
+      		if (input == "stop") {
+      			stop = true;
+      			questions = question;
+      			return wrong;
+      		}
+		else if (input == solution) alert("Correct!");
+		else {
+			alert("Incorrect solution. Try again.");
+ 			wrong++;
+      	} 
+   }
+   if (wrong > 0) wrong = 1;
+   return wrong;
 }
