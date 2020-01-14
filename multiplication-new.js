@@ -13,14 +13,14 @@ main();
 
 /* code */
 function main(){
+	var stop=false;
+	var wrongAnswers=0;
+	var bottomRange=0;
+	var topRange=0;
+	var questions = setup();
 	let again=true;
-	let stop=false;
-	let wrongAnswers=0;
-	let bottomRange=0;
-	let topRange=0;
-	let questions = setup();
 	for (let question = 1; question <= questions; question++) {
-		wrongAnswers+=questioner();
+		wrongAnswers+=questioner(question);
 	} 
 	if (wrongAnswers>0) {
 	   again = confirm("You had "+wrongAnswers+" wrong answers out of "+questions+ " questions, with factors up to "+topRange+".\nDo this some more?");
@@ -33,25 +33,27 @@ function main(){
 // FUNCTIONS
 
 function setup() {
-	let questions = parseInt(prompt("*** MUTIPLICATION TABLE TRAINER ***\nHow many questions?"));
+	questions = parseInt(prompt("*** MUTIPLICATION TABLE TRAINER ***\nHow many questions?"));
 	bottomRange = parseInt(prompt("Lowest factor?"));
 	topRange = parseInt(prompt("Highest factor?"));
 	alert("Enter 'stop' to quit the program.");
 	return questions;
 }
 
-function questioner(){
+function questioner(question){
    	let wrong=0; 
-	x = Math.floor(Math.random()*(topRange-bottomRange))+bottomRange;
-   	y = Math.floor(Math.random()*(topRange-bottomRange))+bottomRange;
-	equation=("What is "+x+" * "+y+"?");
+	x = Math.floor(Math.random()*((topRange+1)-bottomRange))+bottomRange;
+   	y = Math.floor(Math.random()*((topRange+1)-bottomRange))+bottomRange;
+	let equation=("What is "+x+" * "+y+"?");
 	let solution=x*y; 
-	wrong = userInput(equation,solution);
+	wrong = userInput(question, equation, solution);
 	console.trace("multiPractice: ",x," * ",y," with ",wrong," wrong.");
 	return wrong; 
 }
 
-function userInput(equation, solution){
+function userInput(question, equation, solution){
+	let stop=false;
+	console.log("Question "+question);
 	let wrong=0;
 	let input=0;
 	while (input != solution && stop==false) {
