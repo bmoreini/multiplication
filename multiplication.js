@@ -30,7 +30,7 @@ function main(){
 		let equation=("What is "+x+" * "+y+"?");
 		let solution=x*y;
 		wrong = userInput(equation, solution);
-		console.trace("multiPractice: ",x," * ",y," with ",wrong," wrong.");
+		console.trace("question "+question+":"+x," * ",y," with ",wrong," wrong.");
 		return wrong;
 	} // close questioner
 
