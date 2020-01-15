@@ -24,8 +24,8 @@ function main(){
 
 	function questioner(){
 	   	let wrong=0;
-		x = Math.floor(Math.random()*((topRange+1)-bottomRange))+bottomRange;
-	   	y = Math.floor(Math.random()*((topRange+1)-bottomRange))+bottomRange;
+		let x = Math.floor(Math.random()*((topRange+1)-bottomRange))+bottomRange;
+	   	let y = Math.floor(Math.random()*((topRange+1)-bottomRange))+bottomRange;
 		let equation=("What is "+x+" * "+y+"?");
 		let solution=x*y;
 		wrong = userInput(equation, solution);
