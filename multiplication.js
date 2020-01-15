@@ -42,7 +42,6 @@ function main(){
 			if (input == "stop") {
 				stop = true;
 				questions = question;
-				return wrong;
 			}
 			else if (input == solution) alert("Correct!");
 			else {
