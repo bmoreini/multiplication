@@ -1,6 +1,5 @@
+/* Multiplication Quiz by Mr. M.*/
 
-
-/*  initializations */
 main();
 
 /* code */
@@ -14,7 +13,7 @@ function main(){
 	// This is the end of the main() code.
 
 	/* Main Code child functions */
-
+	
 	function setup() {
 		questions = parseInt(prompt("*** MUTIPLICATION TABLE TRAINER ***\nHow many questions?"));
 		bottomRange = parseInt(prompt("Lowest factor?"));
@@ -48,10 +47,9 @@ function main(){
 			else if (input == solution) alert("Correct!");
 			else {
 				alert("Incorrect solution. Try again.");
-	 			wrong++;
+	 			wrong=1;
 			}
 		}
-		if (wrong > 0) wrong = 1;
 		return wrong;
 	} // close userInput
 
@@ -59,10 +57,9 @@ function main(){
 		if (wrongAnswers>0 || stop==true) {
 			again = confirm("You had "+wrongAnswers+" wrong out of "+questions+".\n Do this some more?");
 		}
-		else again = confirm("Charlie, you've won! Try a higher factor and do this some more?");
+		else again = confirm("Charlie, you've won! Try higher factors and do this some more?");
 		if (again==true) main();
 		else alert("Hope you learned your times tables!");
-	}
+	} // close endQuiz
+	
 } // close main
-
-
