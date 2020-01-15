@@ -30,13 +30,12 @@ function main(){
 		let equation=("What is "+x+" * "+y+"?");
 		let solution=x*y;
 		wrong = userInput(equation, solution);
-		console.trace("question "+question+":"+x," * ",y," with ",wrong," wrong.");
+		console.trace("Question "+question+": "+x+" * "+y+" with "+wrong+" wrong.");
 		return wrong;
 	} // close questioner
 
 	function userInput(equation, solution){
 		stop=false;
-		console.log("Question "+question);
 		let wrong=0;
 		let input=0;
 		while (input != solution && stop==false) {
