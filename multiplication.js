@@ -12,7 +12,7 @@ function main(){
 	endQuiz(wrongAnswers);
 	// This is the end of the main() code.
 
-	/* Main Code child functions */
+	
 	
 	function setup() {
 		questions = parseInt(prompt("*** MUTIPLICATION TABLE TRAINER ***\nHow many questions?"));
