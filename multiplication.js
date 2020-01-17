@@ -4,7 +4,7 @@ main();
 //var question = 0;
 
 function main(){
-	var question = 0; stop=false; again=true; wrongAnswers=0; bottomRange=0; topRange=0;again=false;
+	var question = 0; stop=false; again=true; wrongAnswers=0; bottomRange=0; topRange=0; again=false;
 	var questions = setup();
 	for (question = 1; question <= questions; question++) {
 		wrongAnswers+=questioner();
