@@ -1,8 +1,8 @@
 /* Multiplication Quiz by Mr. M.*/
 
 main();
+//var question = 0;
 
-/* code */
 function main(){
 	var question = 0; stop=false; again=true; wrongAnswers=0; bottomRange=0; topRange=0;
 	var questions = setup();
